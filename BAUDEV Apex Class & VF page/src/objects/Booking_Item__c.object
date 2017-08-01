@@ -119,7 +119,7 @@
     </fields>
     <fields>
         <fullName>Booking_Item_Number__c</fullName>
-        <description>Updated via integration, maps to BOOKING_ITM_NUMBER in the source file; read only for users.This is GITHUB demo</description>
+        <description>Updated via integration, maps to BOOKING_ITM_NUMBER in the source file; read only for users.This is GITHUB demo2</description>
         <externalId>false</externalId>
         <label>Booking Item Number</label>
         <precision>18</precision>
