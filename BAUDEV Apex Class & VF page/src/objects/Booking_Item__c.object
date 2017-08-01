@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>FIT Global Operations - used to add Booking Items via Informatica job, related to Cases.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AS400_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>AS400 ID</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Appeal_Amount_BI__c</fullName>
+        <description>INC363593 :  Creation of this field in place of Appeal_Amount__c which was a formula previously. It has now been deleted.</description>
+        <externalId>false</externalId>
+        <label>Appeal Amount BI</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Appeal_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.Appeal_Amount__c</formula>
+        <label>Appeal Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Booking_Item_Key_OLD__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Contains the old Booking Item Key (Site Id | Booking Id | Booking Item Number | Booking Item Type)</description>
+        <externalId>false</externalId>
+        <label>Booking Item Key OLD</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Booking_Item_Key__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Unique identifier that finds the correct Booking Item to update, read only for users</description>
+        <externalId>true</externalId>
+        <label>Booking Item Key</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Booking_Item_Number__c</fullName>
+        <description>Updated via integration, maps to BOOKING_ITM_NUMBER in the source file; read only for users.This is GITHUB demo</description>
+        <externalId>false</externalId>
+        <label>Booking Item Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Booking_Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Reflects booking status as per POS.</inlineHelpText>
+        <label>Booking Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Available</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On-Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_Item__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Case Item</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Case_Key__c</fullName>
+        <description>Unique identifier that finds the matching Case for the integration, read only for users</description>
+        <externalId>true</externalId>
+        <label>Case Key</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case__c</fullName>
+        <externalId>false</externalId>
+        <label>Case</label>
+        <referenceTo>Case</referenceTo>
+        <relationshipLabel>Booking Items</relationshipLabel>
+        <relationshipName>Booking_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>City_Code__c</fullName>
+        <description>Updated via integration, maps to PSEDUO_CITY_CODE in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>City Code</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>Updated via integration, maps to PSEUDO_CITY_CAPTION in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Commission__c</fullName>
+        <description>Updated via integration, maps to COMMISSION in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Commission</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>DI__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Updated via integration, maps to DI_FLAG in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>DI</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Investigating Department</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Finance - Local</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Delhi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sourcing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations Inbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations DS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations Outbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chain Operations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Direct_Charge_Reason__c</fullName>
+        <description>Created as per SFDC-790</description>
+        <externalId>false</externalId>
+        <label>Direct Charge Reason</label>
+        <picklist>
+            <controllingField>Sub_Type__c</controllingField>
+            <picklistValues>
+                <fullName>Cancelled booking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial/Contract dispute</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No booking found</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate/Room type discrepancy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relocation – Alternative hotel charged pax direct</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC – Ghost card</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC – No knowledge of DI payment process</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC – Overwritten by pax card</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC – USA no auth form</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC Declined – AMEX Fraud team rejected</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC Declined – Hotel processing error</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC Declined – Exchange rate difference</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC Declined – Insufficient funds available</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not direct charge – Extras or security deposit only</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <controllingFieldValues>Direct Charge</controllingFieldValues>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EVoucher__c</fullName>
+        <externalId>false</externalId>
+        <formula>Case__r.EVoucher__c</formula>
+        <label>EVoucher</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Gross_Amount__c</fullName>
+        <description>Updated via integration, maps to GROSS_AMOUNT in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Gross Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>If_other_please_specify__c</fullName>
+        <description>Created as per SFDC-790</description>
+        <externalId>false</externalId>
+        <label>If other,please specify</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Item_Category__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Reason for the Case relating to the individual Booking Item level</inlineHelpText>
+        <label>Item Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Agent Discount Query</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATID Accounts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATID Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ATID Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Availability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bedding Type</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Booking Discrepancy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Book Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chase Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Additional Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Error Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Payment Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Charge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Removed Charges</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disabled Room</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extras</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel Amendment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Login Details</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meal Basis</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mismeet/Late</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Booking At Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Disclosure</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reconfirm Booking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reolcation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Room Type</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Amendment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Info</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transfer Space</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renovation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Item_Code__c</fullName>
+        <description>Updated via integration, maps to ITEM_CODE in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Item Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Item_Cost__c</fullName>
+        <description>Updated via integration, maps to ITEM_COST in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Item Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Item_Description__c</fullName>
+        <description>Updated via integration, maps to ITEM_DESC in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Item Description</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Item_Type_Description__c</fullName>
+        <description>Updated via integration, maps to ITEM_TYPE_DESC in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Item Type Description</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Item_Type__c</fullName>
+        <description>Updated via integration, maps to ITEM_TYPE_CODE in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Item Type</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Miscellaneous_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Miscellaneous Other</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_Amount__c</fullName>
+        <description>Updated via integration, maps to NET_AMOUNT in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Net Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Nights__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Nights</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Out_of_Pocket_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Out of Pocket Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unclear responsibility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GTA error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Excessive delay</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Uncooperative supplier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplier compromise</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Solutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Out_of_Pocket__c</fullName>
+        <externalId>false</externalId>
+        <label>Out of Pocket</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Property_Classification__c</fullName>
+        <externalId>false</externalId>
+        <formula>Supplier_Account__r.Property_Classification__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Property Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Property_Model__c</fullName>
+        <externalId>false</externalId>
+        <formula>Supplier_Account__r.Property_Availability__c</formula>
+        <label>Property Model</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rate_Disclosure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Created as per SFDC-790</description>
+        <externalId>false</externalId>
+        <label>Rate Disclosure</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Code__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Supplier Reason in MSX</inlineHelpText>
+        <label>Service Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Airport Lounge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Private Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shuttle Bus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regular Sightseeing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Submitted for approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Tour_Number__c), Null,
+
+IF(CONTAINS(&quot;L2NF:L2PF:N1KF:N2KF:N3KF:N7AF:NI1F:NN2F:NNAF:NNBF:NNKF:NNZF:QLAF:QLBF:QQKF:X77F:XX7F:XXKF:XXPF&quot;, LEFT(Tour_Number__c,4)), &quot;AMERICAS&quot;,
+
+IF(CONTAINS(&quot;HH7F:AA1F:AA2F:AA7F:AABF:AAEF:AAKF:AAWF:BB4F:BB7F:BBBF:BBEF:BBIF:BBKF:BBWF:E1KF:E2KF:EE2F:EE4F:EE5F:EE7F:EE8F:EECF:EEEF:EEOF:HH2F:HHBF:HHKF:HHWF:HI1F:II2F:II4F:II7F:IIBF:IIEF:IIIF:IIKF:IIWF:JJ2F:JJ4F:JJ7F:JJBF:JJEF:JJKF:JJWF:KK2F:KKAF:KKBF:KKFF:KKJF:KKKF:KKWF:OOAF :OOBF:OOFF:OOJF:OOOF:OOWF:OOZF:SL7F:SS1F:SS4F:SS7F:SSDF:SSEF:SSGF:SSKF:SSNF:SSPF:TT2F:TT7F:TTAF :TTBF:TTFF:TTJF:VV2F:VV7F:VVEF:VVKF:VVWF:X6KF:X6WF:YY2F:YYAF:YYBF:YYFF:YYJF:YYKF:YYWF:ZZ2F:ZZ7F:ZZBF:ZZEF:ZZKF:ZZWF&quot;, LEFT(Tour_Number__c,4)), &quot;APAC&quot;,
+
+IF(CONTAINS(&quot;L1PF:L78F:GGBF:GI1F:L1AF:L1KF:L1MF:L1NF:L1PF:L1PF:L2NF:L2NF :L2PF:L74F:L76F :L77F :L9OF:LDKF:LE4F:LE7F:LE8F:LGKF:LGNF:LGPF:LI3F:LI4F:LI5F:LI6F:LL1F:LL2F:LL4F:LL5F:LL6F:LL7F:LL8F:LL9F:LLCF:LLFF:LLKF:LLLF:LLOF:LLSF:MMKF:MMOF:RRKF&quot;, LEFT(Tour_Number__c,4)), &quot;EUROPE&quot;,
+
+
+IF(CONTAINS(&quot;DD2F:DD6F:DD7F:DD9F:DDDF:DDKF:WI2F:WW4F:WW5F:WW7F :WW8F:WWCF:WWKF:WWWF&quot;, LEFT(Tour_Number__c,4)), &quot;MEA&quot;,
+
+&quot;Other&quot;)))))</formula>
+        <label>Region</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Responsibility__c</fullName>
+        <externalId>false</externalId>
+        <label>Responsibility</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disaster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations Inbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations Outbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sourcing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Traveler</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Valid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SF_Case_Owner_is_Me__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( Case__r.OwnerId=  $User.Id,True,False)</formula>
+        <inlineHelpText>Created by Salesforce.com as part of Feb 15 review
+
+Returns true if viewing user is Case Owner
+
+Used in Booking Items Tab to show Booking Items Owned by Viewing User</inlineHelpText>
+        <label>SF Case Owner is Me</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SF_SourceLastModified__c</fullName>
+        <description>Date and time at which a booking was last modified in the source database</description>
+        <externalId>false</externalId>
+        <label>SF_SourceLastModified</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Service_Start_Date__c</fullName>
+        <description>Updated via integration, maps to SERVICE_START_DATE in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Service Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Source__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Relates to Out of Pocket Refund</inlineHelpText>
+        <label>Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>BI Status</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub Type</label>
+        <picklist>
+            <controllingField>Type__c</controllingField>
+            <picklistValues>
+                <fullName>2 For You</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AAA Member Benefit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Account Query</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accounts issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agent Discount</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Allotment Dispute</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alternative Address</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amendment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amendment- Pax Name</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Amendment- Service/Hotel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Availability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Avoided</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Awaiting Confirmation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bedding Configuration</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bedding Confirmation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Booking Discrepancy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation by Supplier</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Info/ Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Waiver</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Waiver-2 For You</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Waiver-Letter from Hotel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled and Rebooked</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>​Change of tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chasers</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child/Infant Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed Down</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Close Out Not Actioned</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Commission Query</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Termination</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Death &amp; Hospitalization</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delayed/Changed Arrival</fullName>
+                <default>false</default>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Error Rejected</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Direct Charge</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disabled Room</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Disaster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discrepancy-Client Invoice</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Discrepancy-Supplier Invoice</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DI Special Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driver Behaviour</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate Booking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emergency Repair</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Errors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance - Commission/Payment/Refund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Dispute</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Force Majeure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fraud Booking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guest Details - Contacts, Names, Arrival Time, Bedding Pref Etc.</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Guest Nationality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel closure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel No-Show</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incorrect Information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Letter</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inventory query</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Language Issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Late Driver</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Major Client Error</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meal Basis</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Minor Client Error</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miscellaneous</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed Closed Out</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missed Stop Sell</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miss Meet</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Missmeet/Late</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nationality Discrepency</fullName>
+                <default>false</default>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Newsletter/Memo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Booking at Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Booking with Supplier</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non GTA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show/Go Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Overbooked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Overbooking</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Past dated Item</fullName>
+                <default>false</default>
+                <controllingFieldValues>Internal Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment - Prepayment or Acc Query</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prepayment</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quality</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Disclosure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Discrepancy</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reconfirmation</fullName>
+                <default>false</default>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reconfirmation Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refund Request</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relocation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relocation Avoided</fullName>
+                <default>false</default>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renovations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Room Configuration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Room Configuration/Type</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Request: Agent Discount</fullName>
+                <default>false</default>
+                <controllingFieldValues>Internal Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seasonal/Special Event Closure</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Info</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Sold out</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request- Disabled/Wheelchair</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request - Extras</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request- Extras</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request- Honeymoon</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request - Late/Early</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request - Meal Basis</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request - RM Type</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request- Room</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Request- Services</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SR Booking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Staff Bookings</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUCC issue</fullName>
+                <default>false</default>
+                <controllingFieldValues>Account Query</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplier Confirmation</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplier Rejection</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Supplier Updates</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry- Supplier</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Errors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Issues</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Limitations</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System workaround</fullName>
+                <default>false</default>
+                <controllingFieldValues>Internal Request</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Taxes, Fees &amp; Charges</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Theft/Loss</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tour Change</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Agent Discount</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unable to Locate Driver</fullName>
+                <default>false</default>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unregistered Booking at Hotel</fullName>
+                <default>false</default>
+                <controllingFieldValues>Relocation</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VIP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voucher Information</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+                <controllingFieldValues>On the Road</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vouchers</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VSL</fullName>
+                <default>false</default>
+                <controllingFieldValues>Pre-Travel Inquiry-Client</controllingFieldValues>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website Description</fullName>
+                <default>false</default>
+                <controllingFieldValues>Complaint Post Departure</controllingFieldValues>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Supplier_Account_Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>Supplier_Account__r.Country__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Supplier Account Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Supplier Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Booking Items</relationshipLabel>
+        <relationshipName>Booking_Items</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Supplier_Agreed_Refund__c</fullName>
+        <externalId>false</externalId>
+        <label>Supplier Agreed Refund</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Supplier_Chases__c</fullName>
+        <externalId>false</externalId>
+        <label>Supplier Chases</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>Supplier_Name__r.Email</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Supplier Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Investigation_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Supplier Investigation Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Supplier_Name__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Supplier Name</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Booking Items</relationshipLabel>
+        <relationshipName>Booking_Items</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Supplier_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>Supplier_Name__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Supplier Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Converted_Cost_Adjustment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of all Converted Cost Adjustment Amount values</inlineHelpText>
+        <label>Total Converted Cost Adjustment  Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Converted_Recovered_Loss_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of all Converted Recovered Loss Amount values</inlineHelpText>
+        <label>Total Converted Recovered Loss Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Loss_Amount_After_Recovery__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Potential_Loss_Amount__c - Total_Converted_Recovered_Loss_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total Potential Loss Amount minus Converted Recovered Loss Amount values</inlineHelpText>
+        <label>Total Loss Amount After Recovery</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Loss_Amount_in_POS__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of all Loss Amount in  POS values</inlineHelpText>
+        <label>Total Loss Amount in POS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Potential_Loss_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Converted_Cost_Adjustment_Amount__c  +  Total_Loss_Amount_in_POS__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Sum of all Total Loss in POS and Total Converted Cost Adjustment Amount</inlineHelpText>
+        <label>Total Potential Loss Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Refund__c</fullName>
+        <externalId>false</externalId>
+        <formula>Out_of_Pocket__c +  Supplier_Agreed_Refund__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Refund</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tour_Number__c</fullName>
+        <description>Updated via integration, maps to TOUR_NUMBER in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Tour Reference</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Account Query</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint Post Departure</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Travel Inquiry-Client</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Internal Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On the Road</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relocation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Travel Inquiry- Supplier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Unauthorised_Deduction_For_Hotel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Unauthorised Deduction For Hotel</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Web_Booking_ID__c</fullName>
+        <description>Updated via integration, maps to WEB_BOOKING_ID in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Web_Booking_ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Client_UID__c</fullName>
+        <description>Updated via integration, maps to WEB_CLIENT_UID in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Web_Client_UID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Site_ID__c</fullName>
+        <description>Updated via integration, maps to WEB_SITE_ID in the source file; read only for users</description>
+        <externalId>false</externalId>
+        <label>Web_Site_ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Booking Item</label>
+    <nameField>
+        <label>Booking Item Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Booking Items</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Cannot_Change_City</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( City__c ))</errorConditionFormula>
+        <errorDisplayField>City__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_City_Code</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;, $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED(City_Code__c))</errorConditionFormula>
+        <errorDisplayField>City_Code__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Gross_Amount</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Gross_Amount__c ))</errorConditionFormula>
+        <errorDisplayField>Gross_Amount__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Item_Code</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Item_Code__c ))</errorConditionFormula>
+        <errorDisplayField>Item_Code__c</errorDisplayField>
+        <errorMessage>Cannot change this field.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Item_Cost</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Item_Cost__c ))</errorConditionFormula>
+        <errorDisplayField>Item_Cost__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Item_Description</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Item_Description__c ))</errorConditionFormula>
+        <errorDisplayField>Item_Description__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Item_Type</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;,  ISCHANGED( Item_Type__c ))</errorConditionFormula>
+        <errorDisplayField>Item_Type__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Service_Start_Date</fullName>
+        <active>true</active>
+        <description>Cannot change Service Start Date</description>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;,  $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Service_Start_Date__c ))</errorConditionFormula>
+        <errorDisplayField>Service_Start_Date__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Cannot_Change_Status</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($User.Id &lt;&gt; &quot;00520000001chQV&quot;, $User.Id &lt;&gt; &quot;00520000001chQVAAY&quot;, ISCHANGED( Status__c))</errorConditionFormula>
+        <errorDisplayField>Status__c</errorDisplayField>
+        <errorMessage>Cannot change this field</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Direct_Charge_Reason_Required</fullName>
+        <active>true</active>
+        <description>Created as per SFDC-790</description>
+        <errorConditionFormula>AND(ISPICKVAL(Sub_Type__c ,&apos;Direct Charge&apos;),ISPICKVAL(Direct_Charge_Reason__c ,&apos;&apos;))</errorConditionFormula>
+        <errorDisplayField>Direct_Charge_Reason__c</errorDisplayField>
+        <errorMessage>Direct Charge Reason cannot be blank when Sub-Type = &apos;Direct Charge&apos;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Please_specify_Other</fullName>
+        <active>true</active>
+        <description>Created as per SFDC-</description>
+        <errorConditionFormula>AND(ISPICKVAL( Direct_Charge_Reason__c ,&apos;Other&apos;),If_other_please_specify__c = &apos;&apos;)</errorConditionFormula>
+        <errorDisplayField>If_other_please_specify__c</errorDisplayField>
+        <errorMessage>Please specify the Other Reason</errorMessage>
+    </validationRules>
+</CustomObject>
